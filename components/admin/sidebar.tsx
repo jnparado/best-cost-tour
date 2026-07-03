@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { logout } from "@/lib/auth/actions";
 
 const navItems = [
   { href: "/admin", label: "Dashboard", icon: "📊" },
@@ -66,6 +67,14 @@ export function Sidebar() {
       </nav>
 
       <div className="border-t border-slate-700 px-6 py-4">
+        <form action={logout}>
+          <button
+            type="submit"
+            className="mb-3 flex w-full items-center gap-2 rounded-lg bg-slate-800 px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-slate-700 hover:text-white"
+          >
+            <span>⏻</span> Sign Out
+          </button>
+        </form>
         <p className="text-xs text-slate-500">Tour Management ERP</p>
         <p className="text-xs text-slate-600">v1.0.0</p>
       </div>

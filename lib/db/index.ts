@@ -11,8 +11,13 @@ import {
 } from "@/lib/data/availability";
 import { calculateBookingCost } from "@/lib/calculations/booking-cost";
 
-const DB_DIR = path.join(process.cwd(), "data");
-const DB_PATH = path.join(DB_DIR, "bestcoasttour.db");
+// Vercel's serverless filesystem is read-only except /tmp. The database is
+// recreated from seed data on each cold start there (fine for a demo).
+// Locally, DATABASE_PATH from .env.local controls where the file lives.
+const DB_PATH = process.env.VERCEL
+  ? path.join("/tmp", "bestcoasttour-data", "bestcoasttour.db")
+  : path.resolve(process.cwd(), process.env.DATABASE_PATH ?? "data/bestcoasttour.db");
+const DB_DIR = path.dirname(DB_PATH);
 
 let db: Database.Database | null = null;
 
