@@ -1,10 +1,18 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-sky-50 via-white to-slate-50">
       <div className="mx-auto max-w-lg text-center">
-        <div className="mb-6 text-6xl">🌊</div>
+        <Image
+          src="/logo.png"
+          alt="Best Coast Tours logo"
+          width={160}
+          height={160}
+          priority
+          className="mx-auto mb-6 h-40 w-40 object-contain"
+        />
         <h1 className="text-4xl font-bold tracking-tight text-slate-900">
           Best Coast Tours
         </h1>

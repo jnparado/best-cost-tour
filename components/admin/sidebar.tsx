@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
@@ -23,8 +24,14 @@ export function Sidebar() {
     <aside className="flex w-64 shrink-0 flex-col border-r border-slate-200 bg-slate-900 text-white">
       <div className="border-b border-slate-700 px-6 py-5">
         <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-500 text-lg">
-            🌊
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white">
+            <Image
+              src="/logo.png"
+              alt="Best Coast Tours logo"
+              width={40}
+              height={40}
+              className="h-10 w-10 object-contain"
+            />
           </div>
           <div>
             <h1 className="text-sm font-bold tracking-wide">Best Coast Tours</h1>
